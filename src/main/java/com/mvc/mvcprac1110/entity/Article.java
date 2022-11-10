@@ -3,18 +3,17 @@ package com.mvc.mvcprac1110.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 //entity = row
 //db의 1개의 row(row, record)가 1개의 Class가 된다.
 @Entity
+@Table(name = "article2")
 @NoArgsConstructor
 @Getter
 public class Article {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //db에 id생성을 맡김
     private Long id;
     private String title;
     private String contents;
