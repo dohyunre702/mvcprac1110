@@ -1,4 +1,4 @@
-package controller;
+package com.mvc.mvcprac1110.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -6,10 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/articles")
+@RequestMapping("/new")
 @Slf4j
-public class ArticleController {
-
+public class MustacheController {
     @GetMapping("/hi")
     public String mustacheCon(Model model) {
         model.addAttribute("username", "user01");
@@ -17,8 +16,10 @@ public class ArticleController {
 
     }
 
-    @GetMapping("/new")
-    public String createPage() {
-        return "articles/new";
+    @GetMapping("/hi/{id}") //@PathVariable: URL경로에 템플릿변수를 넣어주는 것
+    public String mustacheCon2(@PathVariable String id, Model model) {
+        model.addAttribute("username", "user01");
+        model.addAttribute("id", id);
+        return "greetings";
     }
 }
