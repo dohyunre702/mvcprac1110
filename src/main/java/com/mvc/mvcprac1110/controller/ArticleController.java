@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -39,6 +40,18 @@ public class ArticleController {
         } else {
             return "error";
         }
+    }
+
+    @GetMapping("/list") //리스트 화면 만들기
+    public String list(Model model) { //findAll() 결과를 list로 넘김
+        List<Article> articles = articleRepository.findAll();
+        model.addAttribute("articles, articles");
+        return "list";
+    }
+
+    @GetMapping("")
+    public String index() {
+        return "redirect:/articles/list";
     }
 
     @PostMapping(value="/posts")
