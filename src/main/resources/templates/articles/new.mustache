@@ -1,0 +1,15 @@
+<!--form-->
+
+{{>layouts/header}}
+<h1>{{username}} Hello! </h1>
+
+<!--submit 버튼 클릭 시 post/articles/posts에 title, content 넘김-->
+<form action = "/articles/posts" method="post">
+    <input type="text" name="title">
+    <input type="text" name="content">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/articles">back</a>
+    <!--@PostMapping(/posts)가 요청을 받고 처리. 로그 출력-->
+</form>
+
+{{>layouts/footer}}
